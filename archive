@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Log Archive Tool!"
+#Setup dates & times using "date" cmd & formatting them
+DT=$(date +"%Y-%m-%d")
+TIME=$(date +"%T")
+
+#commands can be run raw. Prepend .tar.gz w/ save location.
+#$1=source location.
+#${<var>//<char to remove>} removes desired character from var value. IE for DT, 2028/01/24 = 20280124 
+tar -cvzf /var/log/logs_archive_${DT//-}_${TIME//:}.tar.gz $1
